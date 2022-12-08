@@ -45,26 +45,26 @@ export default function Button(props) {
       );
     } else {
       return (
-        <link
+        <Link
           to={props.href}
           className={className.join(" ")}
           style={props.style}
           onClick={onClick}
         >
           {props.children}
-        </link>
+        </Link>
       );
     }
   }
 
   return (
-    <Button
+    <button
       className={className.join(" ")}
       style={props.style}
       onClick={onClick}
     >
       {props.children}
-    </Button>
+    </button>
   );
 }
 
@@ -74,6 +74,7 @@ Button.propTypes = {
   href: propTypes.string,
   target: propTypes.string,
   className: propTypes.string,
+  isPrimary: propTypes.bool,
   isExternal: propTypes.bool,
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,

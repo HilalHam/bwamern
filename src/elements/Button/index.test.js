@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Button from "./index";
+import { BrowserRouter as Router } from "react-router-dom";
 
 test("Should not allowed click button if isDisabled is present", () => {
   const { container } = render(<Button isDisabled></Button>);
@@ -20,6 +21,10 @@ test("Should render <a> tag", () => {
 });
 
 test("Should render <Link> Components", () => {
-  const { container } = render(<Button href="" type="link"></Button>);
-  expect(container.querySelector("link")).toBeInTheDocument();
+  const { container } = render(
+    <Router>
+      <Button href="" type="link"></Button>
+    </Router>
+  );
+  expect(container.querySelector("a")).toBeInTheDocument();
 });
